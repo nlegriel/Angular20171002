@@ -4,7 +4,7 @@
   <form class="form" novalidate (ngSubmit)="addItem()" [formGroup]="form">
     <div class="form-group">
       <input formControlName="name" type="text" name="name" class="form-control" placeholder="Nom et prénom">
-      <div *ngIf="form.get('name').touched && form.get('name').hasError('minlength')" class="alert alert-danger">Champ invalide</div>
+      <div *ngIf="isLengthOnError('name')" class="alert alert-danger">Champ invalide</div>
     </div>
     <div class="form-group">
       <input formControlName="ref" type="text" name="reference" class="form-control" placeholder="ex : 1234">
