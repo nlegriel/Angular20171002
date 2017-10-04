@@ -9,6 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ItemsRoutingModule } from './items-routing/items-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     NgbModule.forRoot(),
     ItemModuleModule,
+    ItemsRoutingModule,
     AppRoutingModule
   ],
   entryComponents: [
