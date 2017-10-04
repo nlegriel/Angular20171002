@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CollectionService {
-  collection: Item[];
+  collection: any[] = [];
 
-  constructor() {
-    this.collection = [
-      new Item({reference: '1234', name: 'Marina', state: 0}),
-      new Item({reference: '2314', name: 'Patrick', state: 1}),
-      new Item({reference: '2277', name: 'Quentin', state: 2})
-    ];
+  constructor(private database: AngularFireDatabase) {
+    this.refreshItems();
+  }
+
+  refreshItems() {
+    this.database.list('/collection').valueChanges().subscribe((data) => {
+      this.collection = data;
+    });
   }
 
   addItem(item: Item) {
-    this.collection.push(item);
+    this.database.list('/collection').push(item);
+    this.refreshItems();
   }
 }
