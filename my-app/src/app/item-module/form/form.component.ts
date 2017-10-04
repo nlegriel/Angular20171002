@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from '../modal/modal.component';
 import { Item } from '../item';
 import { CollectionService } from '../collection.service';
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-form',
