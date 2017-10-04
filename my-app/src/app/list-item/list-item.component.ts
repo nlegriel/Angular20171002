@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AppComponent } from '../app.component';
+
 import { Item } from '../item';
+import { CollectionService } from '../collection.service';
 
 @Component({
   selector: 'app-list-item',
@@ -11,10 +12,10 @@ export class ListItemComponent implements OnInit {
 
   collection: Item[];
 
-  constructor(private _AppComponent: AppComponent) { }
+  constructor(private _CollectionService: CollectionService) { }
 
   ngOnInit() {
-    this.collection = this._AppComponent.collection;
+    this.collection = this._CollectionService.collection;
   }
 
   changeState(item: Item, state: number) {
